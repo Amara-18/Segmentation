@@ -80,7 +80,7 @@ Segmentation labels:
 | --- | --- |
 | `1` | IVH |
 | `2` | SAH |
-| `3` | Ventricle |
+| `3` |residual ventricle |
 
 For the mRS prediction pipeline, the radiomics feature CSV files must contain:
 
