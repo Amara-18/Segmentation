@@ -1,6 +1,7 @@
 # mRS Outcome Prediction and Hemorrhage Segmentation Toolkit
 
 This repository contains the code used for CT hemorrhage segmentation, radiomics feature extraction, XGBoost-based mRS outcome prediction, model fusion, and calibration evaluation.
+the model file has been uploaded to Google Cloud Drive (https://drive.google.com/drive/folders/1WLX-wvq2OqfL2ngBpIzPaEXx3t-zRGUf?usp=sharing).
 
 The workflow has four main stages:
 
@@ -390,14 +391,6 @@ To use the fusion model, first generate probabilities from M1-M4, stack them in 
 fusion_model.predict_proba(stacked_probability_matrix)[:, 1]
 ```
 
-## Notes and Assumptions
-
-- All scripts are configured with relative paths for portability.
-- CT and mask files should be spatially aligned before feature extraction.
-- `train.py` and `batch_inference.py` assume 3D NIfTI volumes.
-- The segmentation model is fully convolutional, so checkpoints can usually be loaded with different spatial input sizes, but changing `target_size` changes preprocessing and may affect performance.
-- The 0.5 ml hemorrhage threshold assumes `voxel_volume_mm3 = 1.0` unless changed in `train.py`.
-- PyRadiomics extraction can be slow; multiprocessing is enabled in `extract_radiomics_features.py`.
 
 ## Typical End-to-End Order
 
